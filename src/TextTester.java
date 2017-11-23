@@ -1,3 +1,4 @@
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
 /**
@@ -7,7 +8,7 @@ import java.util.ArrayList;
  */
 public class TextTester {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws FileNotFoundException {
 		// Construct new TextReader objects for each version of the Analects that I'm working with
 		TextReader analectsGiles = new TextReader("Analects(Giles).txt");
 		TextReader analectsLegges1 = new TextReader("Analects(Legge).txt");
@@ -16,20 +17,23 @@ public class TextTester {
 		// Giles' Translation
 		ArrayList<String> analects = analectsGiles.getLines();
 		Analects giles = new Analects(analects);
-		giles.getMasterCount();
-		giles.getTheMasterSaid();
+//		giles.getMasterCount();
+//		giles.getTheMasterSaid();
+		giles.getWords();
 		
 		// Legge's first translation
 		ArrayList<String> analects1 = analectsLegges1.getLines();
 		Analects legges1 = new Analects(analects1);
-		legges1.getMasterCount();
-		legges1.getTheMasterSaid();
+//		legges1.getMasterCount();
+//		legges1.getTheMasterSaid();
+		legges1.getWords();
 		
 		// Legge's second translation
 		ArrayList<String> analects2 = analectsLegges2.getLines();
 		Analects legges2 = new Analects(analects2);
-		legges2.getMasterCount();
-		legges2.getTheMasterSaid();
+//		legges2.getMasterCount();
+//		legges2.getTheMasterSaid();
+		legges2.getWords();
 
 
 	}
