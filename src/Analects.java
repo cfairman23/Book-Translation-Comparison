@@ -25,14 +25,14 @@ public class Analects {
 	public void getMasterCount() {
 		int masterCount = 0;
 		for (String line : analects) {
-			String[] words = line.toLowerCase().split("[^a-zA-Z]+");
+			String[] words = line.split("[^a-zA-Z]+");
 			for (String currentWord : words) {
-				if (currentWord.equals("master")) {
+				if (currentWord.equals("master") || currentWord.equals("Master")) {
 					masterCount++;
 				}
 			}
 		}
-		System.out.println("'master' appears " + masterCount + " times");
+		System.out.println("'master' or 'Master' appears " + masterCount + " times");
 	}
 	
 	
@@ -40,18 +40,14 @@ public class Analects {
 	 * This method is for getting the number of times "the Master said" and "The Master said" appears.
 	 */
 	public void getTheMasterSaid() {
-		int upperCaseMasterSaidCount = 0;
-		int lowerCaseMasterSaidCount = 0;
+		int masterSaidCount = 0;
 		for (String line : analects) {
-			if (line.contains("The Master said")) {
-				upperCaseMasterSaidCount = upperCaseMasterSaidCount + 1;
-			}
-			if (line.contains("the Master said")) {
-				lowerCaseMasterSaidCount = lowerCaseMasterSaidCount + 1;
+			if (line.contains("The Master said") || line.contains("the Master said") || 
+					line.contains("The master said" ) || line.contains("the master said")) {
+				masterSaidCount++;
 			}
 		}
-		System.out.println("'The Master said appears: " + upperCaseMasterSaidCount + " times");
-		System.out.println("'the Master said appears: " + lowerCaseMasterSaidCount + " times");
+		System.out.println("'The/the M/master said appears: " + masterSaidCount + " times");
 	}
 
 }
